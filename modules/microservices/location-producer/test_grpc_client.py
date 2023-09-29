@@ -8,7 +8,7 @@ Sample implementation of a writer that can be used to write messages to gRPC.
 
 print("Sending sample payload...")
 
-channel = grpc.insecure_channel("localhost:30005")
+channel = grpc.insecure_channel("localhost:5005")
 stub = location_pb2_grpc.LocationServiceStub(channel)
 
 # Update this with desired payload
@@ -17,6 +17,5 @@ msg = location_pb2.LocationMessage(
     latitude="123123",
     longitude="123123"
 )
-
 
 response = stub.Create(msg)

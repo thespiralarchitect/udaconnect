@@ -1,0 +1,128 @@
+
+{
+	"info": {
+		"_postman_id": "669b0801-4e83-42f8-8fc6-7f81eea8cf36",
+		"name": "Udaconnect API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Person API: Get Person List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{personAPIBaseURL}}/api/persons",
+					"host": [
+						"{{personAPIBaseURL}}"
+					],
+					"path": [
+						"api",
+						"persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Person API: Create New Person",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"{{firstName}}\",\n    \"last_name\": \"{{lastName}}\",\n    \"company_name\": \"{{companyName}}\"\n}"
+				},
+				"url": {
+					"raw": "{{personAPIBaseURL}}/api/persons",
+					"host": [
+						"{{personAPIBaseURL}}"
+					],
+					"path": [
+						"api",
+						"persons"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Person API: Get Person Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{personAPIBaseURL}}/api/persons/{{personId}}",
+					"host": [
+						"{{personAPIBaseURL}}"
+					],
+					"path": [
+						"api",
+						"persons",
+						"{{personId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Location API: Get Location Details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{locationAPIBaseURL}}/api/locations/{{locationId}}",
+					"host": [
+						"{{locationAPIBaseURL}}"
+					],
+					"path": [
+						"api",
+						"locations",
+						"{{locationId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Connection API: Get Connection",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{connectionAPIBaseURL}}/api/persons/{{personId}}/connection?start_date={{startDate}}&end_date={{endDate}}&distance={{distance}}",
+					"host": [
+						"{{connectionAPIBaseURL}}"
+					],
+					"path": [
+						"api",
+						"persons",
+						"{{personId}}",
+						"connection"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "{{startDate}}"
+						},
+						{
+							"key": "end_date",
+							"value": "{{endDate}}"
+						},
+						{
+							"key": "distance",
+							"value": "{{distance}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

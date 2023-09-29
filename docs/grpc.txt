@@ -1,0 +1,21 @@
+gRPC Documentation
+
+1. We can make sample requests to the gRPC server at address: `localhost:5005` if we are within the cluster or `locahost:30005` from outside (30005 is the NodePort of the microservice `udaconnect-location-producer`)
+
+2. Below is a sample code that make a request to create new location via gRPC:
+```
+channel = grpc.insecure_channel("localhost:5005")
+stub = location_pb2_grpc.LocationServiceStub(channel)
+
+# Update this with desired payload
+msg = location_pb2.LocationMessage(
+    person_id=1,
+    latitude="123123",
+    longitude="123123"
+)
+
+
+response = stub.Create(msg)
+```
+
+3. `modules/microservices/location-producer/test_grpc_client.py` is a test script to help testing grpc server. We can run it by the following command:

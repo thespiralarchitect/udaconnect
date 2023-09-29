@@ -9,6 +9,11 @@ from sqlalchemy.sql import text
 logging.basicConfig(level=logging.WARNING)
 logger = logging.getLogger("udaconnect-api")
 
+class PersonService:
+    @staticmethod
+    def retrieve_all() -> List[Person]:
+        return db.session.query(Person).all()
+
 class ConnectionService:
     @staticmethod
     def find_contacts(person_id: int, start_date: datetime, end_date: datetime, meters=5

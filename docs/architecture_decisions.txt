@@ -1,0 +1,9 @@
+Architecture Decisions
+
+Decide to choose 3 types of message passing to leverage their advantages for different use cases:
+
+1. RESTful APIs: For integrating with Frontend web application. REST is current industry standard, pretty simple to implement / maintain and integrate.
+
+2. gRPC: For integrating with mobile application to receive device location, because of its overall better performance and payload size reduction compared to REST or other message passing techniques.
+
+3. Message queue (over Kafka): For queuing location data so we can guarantee the system can handle large amount of data without breaking.
